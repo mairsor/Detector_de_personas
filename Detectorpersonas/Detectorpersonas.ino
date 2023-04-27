@@ -2,6 +2,9 @@ int presencia;
 int pinSalidaLED = 9;
 int pinEntradaDetector = 4;
 
+//Arduino UNO
+//Sensor PIR
+
 void setup() {
   Serial.begin(9600);
 
