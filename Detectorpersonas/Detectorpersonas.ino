@@ -1,32 +1,31 @@
-int valor, i = 0;
+int presencia, i = 0;
+int pinSalidaLED = 9;
+int pinEntradaDetector = 4;
 
 void setup() {
-  
-  
-  pinMode(8, OUTPUT);
-  pinMode(4, INPUT);
-  pinMode(9, OUTPUT);
+  Serial.begin(9600);
+
+  pinMode(pinEntradaDetector, INPUT);
+  pinMode(pinSalidaLED, OUTPUT);
 
 }
 
 void loop() {
-  valor = digitalRead(4);
+  presencia = digitalRead(4);
+  Serial.print(presencia);
+  delay(50);
 
-  if(valor==1){
+  if(presencia==1){
     
-    for(i; i<255; i++){
-      analogWrite(9, i);
-      delay(10);
-    }
-
+    digitalWrite(pinSalidaLED, 1);
+    
     
     }
     
   else{
-    //analogWrite(9,0);
-    for(i; i>=0; i--){
-      analogWrite(9, i);
-      delay(10);
+    
+      digitalWrite(pinSalidaLED, 0);
+      
     }
   }
-}
+
